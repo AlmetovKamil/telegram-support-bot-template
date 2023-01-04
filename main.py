@@ -1,12 +1,13 @@
-from telegram.ext import Updater
+from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, ConversationHandler, Filters
+from telegram import KeyboardButton, ReplyKeyboardMarkup
 
 from handlers import setup_dispatcher
-from settings import TELEGRAM_TOKEN, HEROKU_APP_NAME, PORT
+from settings import TELEGRAM_TOKEN, HEROKU_APP_NAME, PORT, TELEGRAM_SUPPORT_CHAT_ID, REPLY_TO_THIS_MESSAGE, \
+    WRONG_REPLY, ASK_QUESTION_MESSAGE
 
 # Setup bot handlers
 updater = Updater(TELEGRAM_TOKEN)
-
-dp = updater.dispatcher
+dp: Dispatcher = updater.dispatcher
 dp = setup_dispatcher(dp)
 
 # Run bot

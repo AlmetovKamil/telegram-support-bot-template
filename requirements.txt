@@ -1,4 +1,4 @@
 python-telegram-bot
 
 # for .env file support
-python-dotenv
+python-dotenv~=0.21.0
